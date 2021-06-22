@@ -25,7 +25,7 @@ while sum<maxsum:
             print('proceeding https://investfunds.ru'+adresses[i]+' '+y1[i]+' '+y5[i],end='\n')
             response1 = requests.get('https://investfunds.ru'+adresses[i])
             b=(response1.content).decode('utf-8')
-            kek=parse(b,'\/">(.+),')  
+            kek=parse(b,'\/">(.+)\[')  
             if kek!=[]:
                 sum=sum+1
                 for j in range(5):
