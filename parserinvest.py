@@ -1,12 +1,12 @@
 import requests
 import re
-dict={} # сам словарик
-porog=.2 # минимальное значение по прибыли в год
-sum=0 # сумма уже отстуканных фондов
-page=1 # текущая страница
-maxsum=10 # максимум пифов для оценки
+dict={} # the dictionary
+porog=.2 # minimal requirements of income per year
+sum=0 # current sum of checked funds
+page=1 # current page of rating
+maxsum=10 # maximum funds for the rating
 
-def parse(a,b): # парсим страницу a регуляркой b
+def parse(a,b): # parsing page A with regexp B
     regex_num = re.compile(b)  
     return regex_num.findall(a)
 
