@@ -1,10 +1,10 @@
 import requests
 import re
 dict={} # the dictionary
-porog=.21 # minimal requirements of income per year
+porog=.20 # minimal requirements of income per year
 sum=0 # current sum of checked funds
 page=0 # current page of rating
-maxsum=16 # maximum funds for the rating
+maxsum=20 # maximum funds for the rating
 
 def parse(a,b): # parsing page A with regexp B
     regex_num = re.compile(b)  
