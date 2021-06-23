@@ -7,7 +7,7 @@ page=0 # current page of rating
 maxsum=20 # maximum funds for the rating
 
 def parse(a,b): # parsing page A with regexp B
-    regex_num = re.compile(b)  
+    regex_num = re.compile(b)
     return regex_num.findall(a)
 
 while sum<maxsum:
@@ -22,10 +22,10 @@ while sum<maxsum:
 #         if float(y1[i])>porog*100:
         if float(y1[i])>porog*100 and float(y5[i])>((1+porog)*(1+porog)*(1+porog)*(1+porog)*(1+porog))*100-100:
             if sum>=maxsum: break
-            print('proceeding https://investfunds.ru'+adresses[i]+' '+y1[i]+' '+y5[i],end='\n')
+            print(parse(b,'itle>(.+) стоимо')[0]+' https://investfunds.ru'+adresses[i]+' '+y1[i]+' '+y5[i],end='\n')
             response1 = requests.get('https://investfunds.ru'+adresses[i])
             b=(response1.content).decode('utf-8')
-            kek=parse(b,'\/">(.+)\[')  
+            kek=parse(b,'\/">(.+?)[,|\[]')  
             if kek!=[]:
                 sum=sum+1
                 for j in range(5):
